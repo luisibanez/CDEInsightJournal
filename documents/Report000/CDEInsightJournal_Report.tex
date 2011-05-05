@@ -1,0 +1,157 @@
+\documentclass{InsightArticle}
+
+\usepackage[dvips]{graphicx}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{textcomp}
+
+\definecolor{listcomment}{rgb}{0.0,0.5,0.0}
+\definecolor{listkeyword}{rgb}{0.0,0.0,0.5}
+\definecolor{listnumbers}{gray}{0.65}
+\definecolor{listlightgray}{gray}{0.955}
+\definecolor{listwhite}{gray}{1.0}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  hyperref should be the last package to be loaded.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[dvips,
+bookmarks,
+bookmarksopen,
+backref,
+colorlinks,linkcolor={blue},citecolor={blue},urlcolor={blue},
+]{hyperref}
+
+
+\title{CDE Applied to Executable Papers}
+
+%
+% NOTE: This is the last number of the "handle" URL that
+% The Insight Journal assigns to your paper as part of the
+% submission process. Please replace the number "1338" with
+% the actual handle number that you get assigned.
+%
+\newcommand{\IJhandlerIDnumber}{3261}
+
+\lstset{frame = tb,
+       framerule = 0.25pt,
+       float,
+       fontadjust,
+       backgroundcolor={\color{listlightgray}},
+       basicstyle = {\ttfamily\footnotesize},
+       keywordstyle = {\ttfamily\color{listkeyword}\textbf},
+       identifierstyle = {\ttfamily},
+       commentstyle = {\ttfamily\color{listcomment}\textit},
+       stringstyle = {\ttfamily},
+       showstringspaces = false,
+       showtabs = false,
+       numbers = left,
+       numbersep = 6pt,
+       numberstyle={\ttfamily\color{listnumbers}},
+       tabsize = 2,
+       language=[ANSI]C++,
+       floatplacement=!h
+       }
+
+\release{1.10}
+
+\author{Philip Guo$^{1}$, Luis Ibanez$^{2}$}
+\authoraddress{$^{1}$Stanford University\\
+$^{2}$ Kitware Inc.}
+
+\begin{document}
+
+
+%
+% Add hyperlink to the web location and license of the paper.
+% The argument of this command is the handler identifier given
+% by the Insight Journal to this paper.
+%
+\IJhandlefooter{\IJhandlerIDnumber}
+
+
+\ifpdf
+\else
+   %
+   % Commands for including Graphics when using latex
+   %
+   \DeclareGraphicsExtensions{.eps,.jpg,.gif,.tiff,.bmp,.png}
+   \DeclareGraphicsRule{.jpg}{eps}{.jpg.bb}{`convert #1 eps:-}
+   \DeclareGraphicsRule{.gif}{eps}{.gif.bb}{`convert #1 eps:-}
+   \DeclareGraphicsRule{.tiff}{eps}{.tiff.bb}{`convert #1 eps:-}
+   \DeclareGraphicsRule{.bmp}{eps}{.bmp.bb}{`convert #1 eps:-}
+   \DeclareGraphicsRule{.png}{eps}{.png.bb}{`convert #1 eps:-}
+\fi
+
+
+\maketitle
+
+
+\ifhtml
+\chapter*{Front Matter\label{front}}
+\fi
+
+
+\begin{abstract}
+\noindent
+This paper describes how to use the CDE tool for packaging a reproducible paper
+as a binary blob suitable to be rexecuted in a destination machine.
+
+This paper is intended to be a tutorial on how to prepare binary submissions to
+the Insight Journal. This adheres to the fundamental principle that scientific
+publications must facilitate \textbf{reproducibility} of the reported results.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+Since the Inception of the Insight Journal in 2005 we have been expecting
+papers to include source code, data and parameters as an integral part of a
+reproducible paper. This combination work very well in the context of ITK
+and CMake, but becomes challenging when more tools are introduced. For example,
+when additional tools and libraries such as MPI, FFTW and MINC are required as
+part of the build process.
+
+It has become necessary to explore more general mechanisms for packaging the
+computational environment of the author in such a way that it can be used by
+the reader of a reproducible paper.
+
+Here we illustrate the use of CDE, a tool developed by Philip Guo at Stanford
+University, as a packager of binary blobs the can be transferred to another
+computer to be executed there.
+
+\section{About CDE}
+
+CDE is a
+
+The CDE web site provides excellent documentation on the tool itself, so we
+will focus here on illustrating how to use it, through well defined steps, for
+the purpose of packaging the accompanying material of a reproducible paper.
+
+\section{Preparing a Reproducible Paper}
+
+\section{Submitting a Reproducible Paper}
+
+\section{Reviewing a Reproducible Paper}
+
+\section{Reading a Reproducible Paper}
+
+\section{Running in a Virtual Machine}
+
+\section{Running in The Cloud}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Insert the bibliography using BibTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{plain}
+\bibliography{InsightJournal}
+
+
+\end{document}
